@@ -201,8 +201,8 @@ body.pdfm .seqrow div{break-inside:avoid;page-break-inside:avoid}
 body.pdfm .seqrow .n{box-shadow:none;border:3px solid #FFC300}
 
 /* bouton de retour à l'accueil de la présentation */
-#back{position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(14px,calc(env(safe-area-inset-bottom) + 6px));z-index:26;display:inline-flex;align-items:center;gap:7px;padding:11px 17px;border-radius:999px;background:var(--vert);color:#fff;font:600 15px/1 Poppins,sans-serif;text-decoration:none;border:2px solid var(--jaune);box-shadow:0 4px 14px rgba(0,0,0,.25)}
-#back span{color:var(--jaune);font-size:17px}
+#back{position:fixed;left:max(14px,env(safe-area-inset-left));bottom:max(16px,calc(env(safe-area-inset-bottom) + 8px));z-index:26;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--vert);color:#fff;text-decoration:none;border:3px solid var(--jaune);box-shadow:0 4px 14px rgba(0,0,0,.28)}
+#back svg{display:block;margin-top:-1px}
 #side .sideback{display:block;margin:2px 12px 8px;padding:10px 12px;border-radius:10px;background:var(--vert);color:#fff;font-weight:600;text-decoration:none}
 @media (min-width:1000px){#back{left:316px}}
 @media print{#back{display:none}}
@@ -362,7 +362,8 @@ journaliste : Eric Léon</code></pre><p class="cap">Exemple de bloc, tiré de l�
   /* retour à l'accueil de la présentation (site en ligne : le guide est dans /guide/) */
   if (/\/guide\/(index\.html)?$/.test(location.pathname)){
     const b = document.createElement('a'); b.id = 'back'; b.href = '../#retour';
-    b.setAttribute('aria-label', 'Retour à l’accueil de la présentation'); b.innerHTML = '<span aria-hidden="true">←</span> Accueil';
+    b.setAttribute('aria-label', 'Retour à l’accueil de la présentation'); b.title = 'Retour à l’accueil';
+    b.innerHTML = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.6 9.6V20h4.7v-5.6h3.4V20h4.7V9.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>';
     document.body.appendChild(b);
     const l = document.createElement('a'); l.className = 'sideback'; l.href = '../#retour'; l.textContent = '← Retour à l’accueil';
     side.insertBefore(l, side.firstChild);
